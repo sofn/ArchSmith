@@ -23,6 +23,9 @@ spring:
   application:
     name: AppForge
     version: 1.0.0
+  threads:
+    virtual:
+      enabled: true
   jpa:
     hibernate:
       naming:

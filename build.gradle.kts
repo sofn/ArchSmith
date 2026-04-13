@@ -51,7 +51,7 @@ subprojects {
         }
 
         tasks.withType<JavaCompile> {
-            options.compilerArgs.addAll(listOf("-Xlint:deprecation"))
+            options.compilerArgs.addAll(listOf("-Xlint:deprecation", "-parameters"))
         }
         
         // 配置测试任务使用JUnit Platform

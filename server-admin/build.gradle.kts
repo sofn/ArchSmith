@@ -1,5 +1,6 @@
 plugins {
     id("org.springframework.boot") version "4.0.5"
+    id("org.graalvm.buildtools.native")
 }
 
 // 构建可执行jar/war包
@@ -15,11 +16,24 @@ configurations {
 }
 
 tasks.bootJar {
-    enabled = false
+    enabled = true
 }
 
 tasks.jar {
     enabled = true
+    archiveClassifier.set("plain")
+}
+
+// GraalVM Native Image 配置
+graalvmNative {
+    binaries {
+        named("main") {
+            mainClass.set("com.lesofn.appforge.server.admin.Application")
+            javaLauncher.set(javaToolchains.launcherFor {
+                languageVersion.set(JavaLanguageVersion.of(21))
+            })
+        }
+    }
 }
 
 dependencies {
