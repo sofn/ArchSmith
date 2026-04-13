@@ -59,8 +59,6 @@ spring:
     deserialization:
       fail-on-unknown-properties: false
     serialization:
-      write-dates-as-timestamps: false
-      write-date-timestamps-as-nanoseconds: false
       fail-on-empty-beans: false
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8

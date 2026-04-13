@@ -45,12 +45,12 @@ subprojects {
 
         // 配置 Java 21
         configure<JavaPluginExtension> {
-            sourceCompatibility = JavaVersion.VERSION_21
-            targetCompatibility = JavaVersion.VERSION_21
+            toolchain {
+                languageVersion.set(JavaLanguageVersion.of(21))
+            }
         }
 
         tasks.withType<JavaCompile> {
-            options.release.set(21)
             options.compilerArgs.addAll(listOf("-Xlint:deprecation"))
         }
         
